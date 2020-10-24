@@ -41,71 +41,52 @@ var rl = readline.createInterface({
 // Soon... https://www.npmjs.com/package/cli-progress
 function main() {
     return __awaiter(this, void 0, void 0, function () {
-        var numCycles, inhale, hold, exhale, unit, i, j, k, l;
+        var numCycles, unit, i;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    console.log('\nWelcome to the Breather app!');
+                    console.log('\nWelcome to the Study Sesh Timer!');
                     return [4 /*yield*/, ask('\nPress any button to continue.')];
                 case 1:
                     _a.sent();
-                    numCycles = 10;
-                    inhale = 7;
-                    hold = 4 * inhale;
-                    exhale = 2 * inhale;
-                    unit = 1000;
-                    console.log('\nAutobreather starting!');
+                    numCycles = process.argv[2] || 10;
+                    unit = 60 * 1000;
+                    console.log('\nStudy session starting!');
                     i = numCycles;
                     _a.label = 2;
                 case 2:
-                    if (!(i > 0)) return [3 /*break*/, 15];
-                    console.log("\n" + i + " cycles left.");
-                    console.log('\nInhale.');
-                    j = inhale;
-                    _a.label = 3;
+                    if (!(i > 0)) return [3 /*break*/, 10];
+                    i === 1 ? console.log("\n" + i + " cycle left.") : console.log("\n" + i + " cycles left.");
+                    console.log('\nMeditate.');
+                    return [4 /*yield*/, sleep(5 * unit)];
                 case 3:
-                    if (!(j > 0)) return [3 /*break*/, 6];
-                    console.log(j);
-                    return [4 /*yield*/, sleep(unit)];
+                    _a.sent(); // Five minutes
+                    console.log('\nEdit.');
+                    return [4 /*yield*/, sleep(5 * unit)];
                 case 4:
                     _a.sent();
-                    _a.label = 5;
+                    console.log('\nRead.');
+                    return [4 /*yield*/, sleep(5 * unit)];
                 case 5:
-                    j--;
-                    return [3 /*break*/, 3];
+                    _a.sent();
+                    console.log('\nAgora.');
+                    return [4 /*yield*/, sleep(10 * unit)];
                 case 6:
-                    console.log('Hold.');
-                    k = hold;
-                    _a.label = 7;
+                    _a.sent();
+                    console.log('\nDraft.');
+                    return [4 /*yield*/, sleep(5 * unit)];
                 case 7:
-                    if (!(k > 0)) return [3 /*break*/, 10];
-                    console.log(k);
-                    return [4 /*yield*/, sleep(unit)];
+                    _a.sent();
+                    console.log('\nPhysiorecovery.');
+                    return [4 /*yield*/, sleep(10 * unit)];
                 case 8:
                     _a.sent();
                     _a.label = 9;
                 case 9:
-                    k--;
-                    return [3 /*break*/, 7];
-                case 10:
-                    console.log('Exhale.');
-                    l = exhale;
-                    _a.label = 11;
-                case 11:
-                    if (!(l > 0)) return [3 /*break*/, 14];
-                    console.log(l);
-                    return [4 /*yield*/, sleep(unit)];
-                case 12:
-                    _a.sent();
-                    _a.label = 13;
-                case 13:
-                    l--;
-                    return [3 /*break*/, 11];
-                case 14:
                     i -= 1;
                     return [3 /*break*/, 2];
-                case 15:
-                    console.log('\n Congratulations! You\'ve completed ten breathing cycles!');
+                case 10:
+                    console.log('\n Congratulations! You\'ve completed ten study sessions!');
                     process.exit(0);
                     return [2 /*return*/];
             }

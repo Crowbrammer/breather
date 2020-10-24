@@ -1,0 +1,21 @@
+{
+  "name": "sectiontimer",
+  "version": "1.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "echo 'Hi!'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Crowbrammer/breather.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Crowbrammer/breather/issues"
+  },
+  "homepage": "https://github.com/Crowbrammer/breather#readme"
+}

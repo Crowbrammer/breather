@@ -7,42 +7,33 @@ const rl = readline.createInterface({
 // Soon... https://www.npmjs.com/package/cli-progress
 
 async function main() {
-    console.log('\nWelcome to the Breather app!')
+    console.log('\nWelcome to the Study Sesh Timer!')
     await ask('\nPress any button to continue.')
 
-    const numCycles = 10;
-    const inhale = 7;
-    const hold = 4 * inhale;
-    const exhale = 2 * inhale; 
-    const unit = 1000;
+    const numCycles = process.argv[2] || 10 ;
+    const unit = 60 * 1000;
 
-    console.log('\nAutobreather starting!');
+    console.log('\nStudy session starting!');
     for (let i = numCycles; i > 0; i -= 1) {
-        console.log(`\n${i} cycles left.`);
-
-
-        console.log('\nInhale.')
-        for (let j = inhale; j > 0; j--) {
-            console.log(j);
-            await sleep(unit);
-        }
+		i === 1 ? console.log(`\n${i} cycle left.`) : console.log(`\n${i} cycles left.`);
         
-        console.log('Hold.')
-        for (let k = hold; k > 0; k--) {
-            console.log(k);
-            await sleep(unit);
-        }
-        
-        console.log('Exhale.')
-        for (let l = exhale; l > 0; l--) {
-            console.log(l);
-            await sleep(unit);
-        }
+
+        console.log('\nMeditate.')
+        await sleep(5 * unit); // Five minutes
+        console.log('\nEdit.')
+        await sleep(5 * unit);
+        console.log('\nRead.')
+        await sleep(5 * unit);
+        console.log('\nAgora.')
+        await sleep(10 * unit);
+        console.log('\nDraft.')
+        await sleep(5 * unit);
+        console.log('\nPhysiorecovery.')
+        await sleep(10 * unit);
     }
 
-    console.log('\n Congratulations! You\'ve completed ten breathing cycles!');
+    console.log('\n Congratulations! You\'ve completed ten study sessions!');
     process.exit(0);
-    
 }
 
 if (require.main === module) {
